@@ -5,7 +5,7 @@ import me.jjfoley.adt.ListADT;
 public class SelectionSort {
 	
 	/**
-	 * SelectionSort: 
+	 * SelectionSort
 	 * Find minimum value in list and bring it to the front
 	 */
 	

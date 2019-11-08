@@ -4,6 +4,12 @@ import me.jjfoley.adt.ListADT;
 import me.jjfoley.adt.impl.JavaList;
 
 public class InsertionSort {
+	
+	/**
+	 * Insertion Sort
+	 * Take value from unsorted list, and insert in the right position in the sorted list
+	 */
+
 	public static void insertSorted(ListADT<Integer> input) {
 		int N = input.size();
 

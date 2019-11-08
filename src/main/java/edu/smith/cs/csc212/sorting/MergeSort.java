@@ -30,7 +30,7 @@ public class MergeSort {
 			combined.addAll(right); //adding whatever is still in "right" to combined
 		}
 		return combined;
-
+		
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class MergeSort {
 		
 		int mid = input.size() / 2; 
 		int start = 0; //get the first index
-		int end = input.size() - 1; //get the last index
+		int end = input.size(); //get the last index
 		
 		if (input.size() > 1) {
 			ListADT<Integer> left = input.slice(start, mid);

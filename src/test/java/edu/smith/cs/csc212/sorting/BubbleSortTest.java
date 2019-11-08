@@ -85,40 +85,41 @@ public class BubbleSortTest {
 		// check it is the original size
 		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);
 	}
-
+	
+	@Test
 	public void testInsertionSort() {
 		ListADT<Integer> sortMe = new JavaList<>();
 		for (int y : SortTestingHelpers.data) {
 			sortMe.addBack(y);
 		}
-		InsertionSort.insertSorted(sortMe);
-		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		ListADT<Integer> insertion = InsertionSort.insertSorted(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(insertion, SortTestingHelpers.data.length));
 
 		Random rand = new Random(13);
-		// For good measure, let's shuffle it and sort it again to see if that works,
-		// too.
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
 		sortMe.shuffle(rand);
-		InsertionSort.insertSorted(sortMe);
-		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		ListADT<Integer> insertion2 = InsertionSort.insertSorted(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(insertion2, SortTestingHelpers.data.length));
 
 		// check it is the original size
 		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);
 	}
-
+	
+	@Test
 	public void testRecursive() {
 		ListADT<Integer> sortMe = new JavaList<>();
 		for (int y : SortTestingHelpers.data) {
 			sortMe.addBack(y);
 		}
-		MergeSort.RecursiveMergeSort(sortMe);
-		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		ListADT<Integer> recursive = MergeSort.RecursiveMergeSort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(recursive, SortTestingHelpers.data.length));
 
 		Random rand = new Random(13);
 		// For good measure, let's shuffle it and sort it again to see if that works,
 		// too.
 		sortMe.shuffle(rand);
-		MergeSort.RecursiveMergeSort(sortMe);
-		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		ListADT<Integer> recursive2 = MergeSort.RecursiveMergeSort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(recursive2, SortTestingHelpers.data.length));
 
 		// check it is the original size
 		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);

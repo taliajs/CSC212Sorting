@@ -64,6 +64,63 @@ public class BubbleSortTest {
 		Assert.assertEquals(27, (int) rightSlice.removeBack());
 		Assert.assertEquals(3, rightSlice.size());
 	}
+	
+	@Test
+	public void testSelectionSort() {
+		ListADT<Integer> sortMe = new JavaList<>();
+		for (int y : SortTestingHelpers.data) {
+			sortMe.addBack(y);
+		}
+		SelectionSort.sort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		
+		Random rand = new Random(13);
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		sortMe.shuffle(rand);
+		SelectionSort.sort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		
+		// check it is the original size
+		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);
+	}
+	
+	public void testInsertionSort() {
+		ListADT<Integer> sortMe = new JavaList<>();
+		for (int y : SortTestingHelpers.data) {
+			sortMe.addBack(y);
+		}
+		InsertionSort.insertSorted(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		
+		Random rand = new Random(13);
+		// For good measure, let's shuffle it and sort it again to see if that works, too.
+		sortMe.shuffle(rand);
+		InsertionSort.insertSorted(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+		
+		// check it is the original size
+		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);
+	}
+	
+	public void testRecursive() {
+		ListADT<Integer> sortMe = new JavaList<>();
+		for (int y : SortTestingHelpers.data) {
+			sortMe.addBack(y);
+		}
+		MergeSort.RecursiveMergeSort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+
+		Random rand = new Random(13);
+		// For good measure, let's shuffle it and sort it again to see if that works,
+		// too.
+		sortMe.shuffle(rand);
+		MergeSort.RecursiveMergeSort(sortMe);
+		Assert.assertTrue(SortTestingHelpers.checkSorted(sortMe, SortTestingHelpers.data.length));
+
+		// check it is the original size
+		Assert.assertEquals(sortMe.size(), SortTestingHelpers.data.length);
+	}
+
 
 
 }
